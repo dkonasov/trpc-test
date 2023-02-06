@@ -8,6 +8,18 @@ export const router = app.router({
     const dao = new EntityDao();
     return dao.getList();
   }),
+  getById: app.procedure
+    .input((input) => {
+      if (typeof input !== "number") {
+        throw new Error("id should be a number!");
+      }
+
+      return input;
+    })
+    .query(({ input }) => {
+      const dao = new EntityDao();
+      return dao.getById(input);
+    }),
 });
 
 export type AppRouter = typeof router;

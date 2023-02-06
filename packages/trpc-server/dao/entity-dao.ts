@@ -17,4 +17,8 @@ export class EntityDao {
       setTimeout(() => resolve(entities), 2000);
     });
   }
+
+  getById(id: number) {
+    return Promise.resolve(entities.find((val) => val.id === id));
+  }
 }
