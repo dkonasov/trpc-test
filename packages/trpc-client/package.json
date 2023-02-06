@@ -5,20 +5,12 @@
   "author": "dkonasov <d.konasov@yandex.ru>",
   "homepage": "https://github.com/dkonasov/trpc-test#readme",
   "license": "ISC",
-  "main": "lib/trpc-client.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dkonasov/trpc-test.git"
   },
   "scripts": {
-    "test": "node ./__tests__/trpc-client.test.js"
+    "start": "vite"
   },
   "bugs": {
     "url": "https://github.com/dkonasov/trpc-test/issues"
