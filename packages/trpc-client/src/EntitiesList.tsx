@@ -1,13 +1,19 @@
 import { FC } from "react";
 import { Resource, useResource } from "react-aport";
-import type { Entity } from "trpc-server";
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { useLoaderData } from "react-router-dom";
+import type { AppRouter, Entity } from "trpc-server";
 
-export interface EntitiesListProps {
-  listResource: Resource<Entity[]>;
-}
+export const entitiesListLoader = () => {
+  const trpc = createTRPCProxyClient<AppRouter>({
+    links: [httpBatchLink({ url: import.meta.env.VITE_BACKEND_URL })],
+  });
 
-export const EntitiesList: FC<EntitiesListProps> = (props) => {
-  const { listResource } = props;
+  return new Resource(trpc.list.query());
+};
+
+export const EntitiesList: FC = () => {
+  const listResource = useLoaderData() as Resource<Entity[]>;
   const entities = useResource(listResource);
 
   return (
