@@ -1,24 +1,16 @@
 {
   "name": "trpc-server",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "Server app of trpc playground",
   "author": "dkonasov <d.konasov@yandex.ru>",
   "homepage": "https://github.com/dkonasov/trpc-test#readme",
   "license": "ISC",
-  "main": "lib/trpc-server.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dkonasov/trpc-test.git"
   },
   "scripts": {
-    "test": "node ./__tests__/trpc-server.test.js"
+    "start": "ts-node app.ts"
   },
   "bugs": {
     "url": "https://github.com/dkonasov/trpc-test/issues"
