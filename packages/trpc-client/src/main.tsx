@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { App } from "./App";
 import { EntitiesList, entitiesListLoader } from "./EntitiesList";
 
 const router = createBrowserRouter([
