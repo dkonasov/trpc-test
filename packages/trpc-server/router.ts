@@ -1,5 +1,6 @@
 import { initTRPC } from "@trpc/server";
 import { EntityDao } from "./dao/entity-dao";
+import { z } from "zod";
 
 const app = initTRPC.create();
 
@@ -19,6 +20,12 @@ export const router = app.router({
     .query(({ input }) => {
       const dao = new EntityDao();
       return dao.getById(input);
+    }),
+  create: app.procedure
+    .input(z.object({ name: z.string() }))
+    .mutation(({ input }) => {
+      const dao = new EntityDao();
+      return dao.create(input);
     }),
 });
 

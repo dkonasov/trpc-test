@@ -21,4 +21,11 @@ export class EntityDao {
   getById(id: number) {
     return Promise.resolve(entities.find((val) => val.id === id));
   }
+
+  create(entity: Omit<Entity, "id">): Promise<Entity> {
+    const id = Math.max(...entities.map((val) => val.id)) + 1;
+    const createdEntity = { id, ...entity };
+    entities.push(createdEntity);
+    return Promise.resolve(createdEntity);
+  }
 }
