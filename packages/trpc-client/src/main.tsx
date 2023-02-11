@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { CreateEntity } from "./CreateEntity";
 
 import { EntitiesList, entitiesListLoader } from "./EntitiesList";
 import { EntityDetail, entityDetailLoader } from "./EntityDetail";
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
     path: "/",
     loader: entitiesListLoader,
     element: <EntitiesList />,
+  },
+  {
+    path: "/create-entity",
+    element: <CreateEntity />,
   },
   {
     path: "/entities/:entityId",

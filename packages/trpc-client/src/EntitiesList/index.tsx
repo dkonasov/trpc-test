@@ -24,6 +24,9 @@ export const EntitiesList: FC = () => {
           {entity.name}
         </Link>
       ))}
+      <Link to="/create-entity">
+        <i>Create new...</i>
+      </Link>
     </div>
   );
 };
